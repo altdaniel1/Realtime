@@ -50,17 +50,17 @@ const Clock = styled.div`
     font-family: Audiowide
 `;
 
-const TdTitle = styled.div`
-    "color": '#333333',
-    "size": "12px",
-    "font-weight": "500"
+const TdTitle = styled.td`
+    color: #333333;
+    size: 12px;
+    font-weight: 500
 `;
 
-const TdBody = styled.div`
-    "padding": "8px",
-    "color": '#333333',
-    "size": "14px",
-    "font-weight": "400"
+const TdBody = styled.td`
+    padding: 8px;
+    color: #333333;
+    size: 14px;
+    font-weight: 400
  `;
 
 
