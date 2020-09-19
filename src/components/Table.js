@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './styles/index.css';
+import '../styles/index.css';
 import { Checkbox, Button } from "@material-ui/core";
 import Users from "../services/Users";
 import { TdTitle, TdBody } from "../styles/styled-components";
@@ -13,21 +13,17 @@ export default function Table() {
     const trBody = {
         "padding": "8px",
         "height": "48px"
-      };
-    
+    };
 
-    
-
-    
-      const theadStyle = { backgroundColor: '#FFFFFF',
-       height: '50px', borderRadius: '4px'
+    const theadStyle = {
+        backgroundColor: '#FFFFFF',
+        height: '50px', borderRadius: '4px'
     }
 
     return (
-        <div>
-            <table style={{ width: "100%", 
-            borderCollapse: "collapse", 
-            marginBottom: "6px" }}>
+        <div data-testid="table">
+            <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "6px" }}>
+                <thead>
                     <tr style={theadStyle}>
                         <TdTitle></TdTitle>
                         <TdTitle>USUÁRIO</TdTitle>
@@ -38,18 +34,22 @@ export default function Table() {
                         <TdTitle>STATUS</TdTitle>
                         <TdTitle style={{ textAlign: "center" }}>AÇÕES</TdTitle>
                     </tr>
+                </thead>
+
 
                 {Users.map((user, index) => (
                     <tbody key={index}>
-                        <tr 
-                        onClick={() => { 
-                            setState({ visibility: !state.visibility, index })
-                        }}
-                        style={{ ...trBody,
-                            borderBottom: state.visibility && state.index === index ? "2px solid #D83367" : "none",
-                            backgroundColor: state.visibility && state.index === index
-                            ? "rgba(54, 25, 25, .00004)"
-                            : index % 2 == 0 ? "#F5F5F5" : "#E9E9E9" }}>
+                        <tr
+                            onClick={() => {
+                                setState({ visibility: !state.visibility, index })
+                            }}
+                            style={{
+                                ...trBody,
+                                borderBottom: state.visibility && state.index === index ? "2px solid #D83367" : "none",
+                                backgroundColor: state.visibility && state.index === index
+                                    ? "rgba(54, 25, 25, .00004)"
+                                    : index % 2 == 0 ? "#F5F5F5" : "#E9E9E9"
+                            }}>
                             <TdBody>
                                 <Checkbox checked={state.visibility && state.index === index} />
                             </TdBody>
@@ -80,11 +80,11 @@ export default function Table() {
                                     <span style={{ color: "#666666", fontWeight: 'bold', fontSize: '20px' }}>
                                         {
                                             state.visibility && index === state.index
-                                            ? <div style={{ display: "flex" }}>
-                                                <Delete />
-                                                <div style={{ marginLeft: "8px" }}><Create /></div>
-                                            </div>
-                                            : <div>...</div>
+                                                ? <div style={{ display: "flex" }}>
+                                                    <Delete />
+                                                    <div style={{ marginLeft: "8px" }}><Create /></div>
+                                                </div>
+                                                : <div>...</div>
                                         }
                                     </span>
                                 </Button>

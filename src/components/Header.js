@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Nav, Buttons } from "../styles/styled-components";
 import { Button, InputBase, IconButton, Divider } from '@material-ui/core';
 import { Search, Home, Settings, PowerSettingsNew, Person, Security, Tune } from "@material-ui/icons";
-import Logo from './symbol.svg';
+import Logo from '../styles/symbol.svg';
 
 function HeaderComponent({ setFilterDrawer }) {
   const styles = {
@@ -13,7 +13,7 @@ function HeaderComponent({ setFilterDrawer }) {
     genericIcon: { padding: 10, width: '20px', height: '20px' }
   }
   return (
-      <Header>
+      <Header data-testid="header">
         <Nav>
           <div style={{ display: 'flex' }}>
             <img src={Logo} alt="logo" />
@@ -33,7 +33,7 @@ function HeaderComponent({ setFilterDrawer }) {
 
           <div style={{ display: 'flex' }}>
             <Buttons style={{ marginRight: '24px' }}>
-              <Button style={styles.basicWhiteButton} onClick={() => setFilterDrawer(true)}>
+              <Button data-testid="filterButton" style={styles.basicWhiteButton} onClick={() => setFilterDrawer(true)}>
                 <Tune style={{ ...styles.genericIcon, padding: 0, color: "#666666" }} />
               </Button>
               <Button style={styles.userIncludeButton}>

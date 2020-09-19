@@ -1,11 +1,11 @@
 import React from 'react'
 import { RadioButtonChecked, Update, Tv } from "@material-ui/icons";
-import "./index.css";
+import "../styles/index.css";
 import { ContainerFooter, NoArNav, Schedule, Clock } from "../styles/styled-components";
 
 export default function Footer() {
     return (
-        <ContainerFooter>
+        <ContainerFooter data-testid="footer">
             <NoArNav>
                 <RadioButtonChecked style={{ fontSize: '16px' }} />
                 <span> No Ar</span>

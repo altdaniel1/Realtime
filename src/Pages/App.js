@@ -12,7 +12,6 @@ export default function App() {
             <Header setFilterDrawer={setFilterDrawer} />
             <div style={{ margin: '24px 40px 0 40px' }}><Table /></div>
             <Footer />
-
             <Drawer filterDrawer={filterDrawer} setFilterDrawer={setFilterDrawer} />
         </div>
     )
